@@ -134,6 +134,32 @@ print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
 
 ```
 
-This one looks like it has less peaks than the first graph. The mean 'r mean(my1000$16)' and sd is 'rsd(1000$k16)'.
+This one looks like it has less peaks than the first graph. The mean 'r mean(my1000$25)' and sd is 'rsd(1000$k25)'.
+
+
+```{r}
+numb = 25
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k25 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k25),col=sex) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k25)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 25") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k25),' sd = ',sd(my1000$k25)))
+
+```
+
+It seems like there's even less of a peak in this graph compared to the others. This graph has a mean of 'r mean(my1000$k25)'. the sd is 'r sd(my1000$k25)'.
+
+
 
 # Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
