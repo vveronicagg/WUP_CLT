@@ -183,4 +183,6 @@ print(paste('mean = ', mean(my1000$k36),' sd = ',sd(my1000$k36)))
 
 This graph shows a pattern of less and less peaks that there's a pattern going on. The mean is 'r mean(my1000$36)'. The sd is 'r sd(my1000$k36)'.
 
-# Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
+## conclusion
+
+From all the samples the mean stayed the same like the sd changes depending on the sample size. Sd and square root of the sample size gives the new sd.
