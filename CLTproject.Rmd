@@ -86,4 +86,26 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 
 ### In this case the stdev was cut in half because the sample size was four. This is what the central limit theorem says. There are also 5 peaks. They go from FFFF,to FFFM, to FFMM to FMMM and finally MMMM.
 
+```{r}
+numb = 9
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k4 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k4),col=sex) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k4)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 4") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
+
+```
+
+
 # Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
