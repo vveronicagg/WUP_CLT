@@ -107,5 +107,9 @@ print(paste('mean = ', mean(my1000$k9),' sd = ',sd(my1000$k9)))
 
 ```
 
+```{r}
+options(digits = 2)
+```
+
 
 # Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
